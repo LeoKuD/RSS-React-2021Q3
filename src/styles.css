@@ -1,0 +1,15 @@
+@import "~normalize.css";
+@font-face {
+  font-family: "Roboto";
+  src: url("./Roboto-Regular.ttf") format("truetype");
+}
+.container {
+    font-family: 'Roboto', sans-serif;
+}
+.test{
+  background-image: url('./webpack-logo.png');
+  background-size: cover;
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+}
