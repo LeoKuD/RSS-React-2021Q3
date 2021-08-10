@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "lint": "eslint src/*.jsx ",
+    "lint": "eslint ./src/*.jsx ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
@@ -25,6 +25,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
@@ -51,6 +52,7 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "@material-ui/icons": "^4.11.2",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

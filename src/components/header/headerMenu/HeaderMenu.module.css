@@ -1,0 +1,18 @@
+.product_image img {
+  height: 200px;
+  width: 200px;
+}
+
+.header_menu {
+  grid-column: 3/4;
+}
+.header_list {
+  list-style-type: none;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: end;
+}
+.header_link {
+  color: wheat;
+  font-size: 18px;
+}
