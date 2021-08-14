@@ -4,8 +4,10 @@ import style from './ProductList.module.css'
 
 export const ProductList = (props) => {
   return (
-    <div className={style.content_products}>
-      <Product data={props.data} />
-    </div>
+    <section className="content">
+      <div className={style.content_products}>
+        <Product data={props.data} />
+      </div>
+    </section>
   )
 }

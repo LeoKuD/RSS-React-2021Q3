@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "lint": "eslint ./src/*.jsx ",
+    "lint": "eslint ./src/**/*.jsx ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",

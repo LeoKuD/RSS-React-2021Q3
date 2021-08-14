@@ -1,7 +1,7 @@
 import React from 'react'
 import { Footer } from './components/footer/Footer'
 import { Header } from './components/header/Header'
-import { ProductList } from './components/productList/ProductList'
+import { ProductCard } from './components/productCard/ProductCard'
 import { Sidebar } from './components/sidebar/Sidebar'
 import { data } from './data'
 
@@ -11,9 +11,8 @@ export const App = () => {
       <Header />
       <main className="main">
         <Sidebar />
-        <section className="content">
-          <ProductList data={data} />
-        </section>
+        {/* <ProductList data={data} /> */}
+        <ProductCard data={data} />
       </main>
       <Footer />
     </div>

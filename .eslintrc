@@ -17,6 +17,8 @@
   },
     "plugins": ["react"],
     "rules": {
+      "object-curly-newline": ["error", { "consistent": true }],
+      "operator-linebreak": ["error", "after"],
       "comma-dangle": ["off", "always"],
       "semi": "off",
       "react/jsx-uses-react": "error",   
