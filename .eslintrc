@@ -1,0 +1,38 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["airbnb-base/legacy", "eslint:recommended"],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "globalReturn": false
+    },
+    "babelOptions": {
+        "configFile": "./babel.config.json"
+    }
+  },
+    "plugins": ["react"],
+    "rules": {
+      "object-curly-newline": ["error", { "consistent": true }],
+      "operator-linebreak": ["error", "after"],
+      "comma-dangle": ["off", "always"],
+      "semi": "off",
+      "react/jsx-uses-react": "error",   
+      "react/jsx-uses-vars": "error" ,
+      "no-plusplus": "off",
+      "no-console": "warn",
+      "max-len": ["warn", { "code": 120 }],
+      "indent": ["warn", 2, {
+        "SwitchCase": 1
+      }],
+      "import/prefer-default-export": "off",
+      "no-param-reassign": ["error", {
+        "props": false
+      }]
+    },
+    "ignorePatterns": ["*config.js"]
+}

@@ -1,0 +1,12 @@
+.searchbar_content {
+  display: grid;
+  height: 40px;
+  width: 100%;
+  grid-template: 1fr / minmax(200px, 1fr) minmax(60px, auto);
+  background-color: white;
+}
+.searchbar_content input {
+  background: url('../../../assets/img/search.png') no-repeat scroll 7px 7px;
+  padding-left: 35px;
+  font-size: 18px;
+}
