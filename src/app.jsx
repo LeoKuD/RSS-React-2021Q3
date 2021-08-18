@@ -1,9 +1,8 @@
 import React from 'react'
+import { DashboardContainer } from './components/dashboard/DashboardContainer'
 import { Footer } from './components/footer/Footer'
 import { Header } from './components/header/Header'
-import { ProductCard } from './components/productCard/ProductCard'
 import { Sidebar } from './components/sidebar/Sidebar'
-import { data } from './data'
 
 export const App = () => {
   return (
@@ -11,8 +10,7 @@ export const App = () => {
       <Header />
       <main className="main">
         <Sidebar />
-        {/* <ProductList data={data} /> */}
-        <ProductCard data={data} />
+        <DashboardContainer />
       </main>
       <Footer />
     </div>

@@ -3,8 +3,11 @@ import style from './SearchBar.module.css'
 
 export const SearchBar = () => {
   return (
-    <div className={style.searchbar_content}>
-      <input type="text" />
-    </div>
+    <form>
+      <div className={style.searchbar_content}>
+        <input type="text" />
+        <button type="submit">Search</button>
+      </div>
+    </form>
   )
 }
