@@ -1,0 +1,22 @@
+.product_image img {
+  height: 200px;
+  width: 200px;
+}
+
+.header_menu {
+  grid-column: 3/4;
+}
+.header_menu ul {
+  list-style-type: none;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: start;
+}
+
+.header_menu a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+.header_menu a.active {
+  color: white; /* Цвет активных ссылок */
+}

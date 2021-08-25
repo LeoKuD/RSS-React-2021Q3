@@ -1,0 +1,7 @@
+.header_logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  grid-column: 2/3;
+}
