@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Paginator } from '../../services/utils/paginator'
 import s from './Dashboard.module.css'
 
@@ -131,12 +132,12 @@ export const Dashboard = (props) => {
           return (
             <div key={index}>
               <div className={s.image_dash_wrapper}>
-                <a href="">
+                <NavLink to={`/details/${item.id}`}>
                   <img
                     src={`${imgLink}/${item.server}/${item.id}_${item.secret}_w.jpg`}
                     alt=""
                   />
-                </a>
+                </NavLink>
               </div>
               <div>Title: {item.title}</div>
               <div>Owner: {item.owner}</div>

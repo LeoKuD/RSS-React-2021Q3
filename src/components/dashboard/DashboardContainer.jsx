@@ -31,13 +31,13 @@ export const DashboardContainer = () => {
     setTotal(response.data.photos.pages)
   }
   return (
-    <>
+    <div className="page">
       <Dashboard
         data={data}
         getData={getData}
         total={total}
         preloader={preloader}
       />
-    </>
+    </div>
   )
 }

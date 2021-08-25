@@ -1,34 +1,22 @@
 import React from 'react'
-import style from './HeaderMenu.module.css'
+import s from './HeaderMenu.module.css'
+import { BrowserRouter as Router, NavLink } from 'react-router-dom'
 
 export const HeaderMenu = () => {
   return (
-    <nav className={style.header_menu}>
-      <ul className={style.header_list}>
+    <nav className={s.header_menu}>
+      <ul>
         <li>
-          <a href="" className={style.header_link}>
-            Пункт меню 2
-          </a>
+          <NavLink to="/" exact={true} activeClassName={s.active}>
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="" className={style.header_link}>
-            Пункт меню 2
-          </a>
-        </li>
-        <li>
-          <a href="" className={style.header_link}>
-            Пункт меню 2
-          </a>
-        </li>
-        <li>
-          <a href="" className={style.header_link}>
-            Пункт меню 2
-          </a>
+          <NavLink to="/about" activeClassName={s.active}>
+            About
+          </NavLink>
         </li>
       </ul>
-      <div className={style.header_burger}>
-        <span></span>
-      </div>
     </nav>
   )
 }

@@ -6,13 +6,17 @@
 .header_menu {
   grid-column: 3/4;
 }
-.header_list {
+.header_menu ul {
   list-style-type: none;
   display: grid;
   grid-auto-flow: column;
-  justify-items: end;
+  justify-items: start;
 }
-.header_link {
-  color: wheat;
-  font-size: 18px;
+
+.header_menu a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+.header_menu a.active {
+  color: white; /* Цвет активных ссылок */
 }
