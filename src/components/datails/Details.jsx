@@ -1,39 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { instance } from '../../services/api'
-const apiKey = '&api_key=a30169317af24374d97e8da29c8914e7'
+import { getDetails } from '../../data'
 const method = '?method=flickr.photos.getInfo'
 const photoIDstr = '&photo_id='
-const format = '&format=json&nojsoncallback=1'
 const imgLink = 'https://live.staticflickr.com'
 
 export const Details = () => {
-  const [details, setDetails] = useState({})
-  const [owner, setOwner] = useState({})
   let { photoId } = useParams()
+  const dispatch = useDispatch()
+  const details = useSelector((state) => state.details.details)
 
-  const getData = async () => {
-    const response = await instance.get(
-      `${method}${apiKey}${photoIDstr + photoId}${format}`
-    )
-    return response.data
-  }
-
-  const getDetails = async () => {
-    const response = await getData()
-    setDetails(response.photo)
-    setOwner(response.photo.owner)
-  }
   useEffect(() => {
-    if (Object.keys(details).length === 0) {
-      getDetails()
-    }
-  }, [details])
-
-  if (Object.keys(details).length === 0) {
+    dispatch(getDetails(method, photoIDstr, photoId))
+  }, [])
+  if (details.length === 0) {
     return <div>Loading</div>
   }
-
   return (
     <div className="page">
       <div>
@@ -46,7 +29,7 @@ export const Details = () => {
       <div>Secret: {details.secret}</div>
       <div>Server: {details.server}</div>
       <div>Data uploaded: {details.dateuploaded}</div>
-      <div>Owner: {owner.username}</div>
+      <div>Owner: {details.owner.username}</div>
     </div>
   )
 }

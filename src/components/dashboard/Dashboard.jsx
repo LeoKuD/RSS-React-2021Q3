@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { getData } from '../../data'
 import { Paginator } from '../../services/utils/paginator'
 import s from './Dashboard.module.css'
 
-export const Dashboard = (props) => {
+export const Dashboard = () => {
   const imgLink = 'https://live.staticflickr.com'
   const [text, setText] = useState('')
   const [minDate, setMinDate] = useState('')
@@ -13,9 +15,9 @@ export const Dashboard = (props) => {
   const [perPage, setPerPage] = useState(10)
   const [method, setMethod] = useState('?method=flickr.photos.getRecent')
   const methodSearch = '?method=flickr.photos.search'
-
+  const dispatch = useDispatch()
   useEffect(() => {
-    props.getData(method, text, minDate, maxDate, sort, localPage, perPage)
+    dispatch(getData(method, text, minDate, maxDate, sort, localPage, perPage))
   }, [sort, localPage, perPage])
 
   const handlerText = (e) => {
@@ -24,12 +26,12 @@ export const Dashboard = (props) => {
   const handlerSubmit = (event) => {
     event.preventDefault()
     setMethod(methodSearch)
-    props.getData(method, text, minDate, maxDate, sort, localPage, perPage)
+    dispatch(getData(method, text, minDate, maxDate, sort, localPage, perPage))
   }
   const handlerDate = (event) => {
     event.preventDefault()
     setMethod(methodSearch)
-    props.getData(method, text, minDate, maxDate, sort, localPage, perPage)
+    dispatch(getData(method, text, minDate, maxDate, sort, localPage, perPage))
   }
   const handlerMinDate = (e) => {
     setMinDate(e.target.value)
@@ -47,7 +49,10 @@ export const Dashboard = (props) => {
       setPerPage(e.target.value)
     }
   }
-  if (!props.preloader) {
+
+  const data = useSelector((state) => state.data.data)
+  const totalPagesCount = useSelector((state) => state.data.totalPagesCount)
+  if (data.length === 0) {
     return <div>Loading</div>
   }
   return (
@@ -109,7 +114,7 @@ export const Dashboard = (props) => {
             />
           </label>
           <Paginator
-            totalItemsCount={props.total}
+            totalItemsCount={totalPagesCount}
             setLocalPage={setLocalPage}
             pageSize={perPage}
             currentPage={localPage}
@@ -128,7 +133,7 @@ export const Dashboard = (props) => {
       </div>
 
       <div className={s.dash_content}>
-        {props.data.map((item, index) => {
+        {data.map((item, index) => {
           return (
             <div key={index}>
               <div className={s.image_dash_wrapper}>

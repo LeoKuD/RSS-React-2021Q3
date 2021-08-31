@@ -7,20 +7,25 @@ const minUploadDate = '&min_upload_date='
 const maxUploadDate = '&max_upload_date='
 const sorti = '$sort='
 import { instance } from './services/api'
+import { setDetails } from './store/detailsReducer'
+import { setData } from './store/photoReducer'
 
-export const getPhotos = async (
-  method,
-  param,
-  minDate,
-  maxDate,
-  sort,
-  page,
-  per
-) => {
-  const response = await instance.get(
-    `${method}${apiKey}${text + param}${minDate && minUploadDate + minDate}${
-      maxDate && maxUploadDate + maxDate
-    }${sort && sorti + sort}${pageNumb + page}${perPage + per}${format}_w`
-  )
-  return response
+export const getData = (method, param, minDate, maxDate, sort, page, per) => {
+  return async (dispatch) => {
+    const response = await instance.get(
+      `${method}${apiKey}${text + param}${minDate && minUploadDate + minDate}${
+        maxDate && maxUploadDate + maxDate
+      }${sort && sorti + sort}${pageNumb + page}${perPage + per}${format}_w`
+    )
+    dispatch(setData(response.data))
+  }
+}
+
+export const getDetails = (method, photoIDstr, photoId) => {
+  return async (dispatch) => {
+    const response = await instance.get(
+      `${method}${apiKey}${photoIDstr + photoId}${format}`
+    )
+    dispatch(setDetails(response.data))
+  }
 }
